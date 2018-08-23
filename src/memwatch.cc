@@ -209,7 +209,7 @@ static void AsyncMemwatchAfter(uv_work_t* request) {
 
 static void noop_work_func(uv_work_t *) { }
 
-void memwatch::after_gc(GCType type, GCCallbackFlags flags)
+void memwatch::after_gc(Isolate* isolate, GCType type, GCCallbackFlags flags)
 {
     if (heapdiff::HeapDiff::InProgress()) return;
 
